@@ -98,6 +98,16 @@ function handleApiCall(data,response){
         return;
     }
 
+    if(package.type == "test pack"){
+        response.write(JSON.stringify({
+            type:"test pack",
+            time:Date.now(),
+            randomInt:Math.random() * (package.max + 1 - package.min) + packagel.min
+        }))
+        response.properEnd()
+        return;
+    }
+
 
     
 
