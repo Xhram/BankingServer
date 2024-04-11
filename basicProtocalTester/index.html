@@ -4,10 +4,10 @@
     </head>
     <body>
         <h3>url:</h3>
-        <input value="http://localhost:8080/api" id="url" onchange="saveURL()">
+        <input value="http://localhost:8080/api" id="url" onkeyup="saveURL()">
         <h1>---Send Post---</h1>
         <h3>Sending Data:</h3>
-        <textarea onchange="savePostOut()" id="PostOut">{"t":3}</textarea>
+        <textarea onkeyup="savePostOut()" id="PostOut">{"t":3}</textarea>
         <h3>Data Recived:</h3>
         <textarea id="PostIn"></textarea>
         <button onclick="sendPostDemo()">Send</button>
