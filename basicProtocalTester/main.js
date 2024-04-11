@@ -28,3 +28,7 @@ async function post(url,package){
       }
     })).text()
 }
+
+function savePostOut(){
+  document.getElementById("PostOut").value;
+}
