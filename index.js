@@ -87,7 +87,7 @@ server.listen(port);
 
 function handleApiCall(data,response){
     try {
-        var package = JSON.parse(package);
+        var package = JSON.parse(data);
     } catch (error) {
         response.write("post request was not in json format");
         response.properEnd();
