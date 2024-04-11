@@ -46,7 +46,9 @@ function requestListener(request,response){
                     response.properEnd();
 
                 }
-
+                if(response.hasEnded){
+                    return
+                }
                 
             }
             request.on("end", EndDataReviving);
