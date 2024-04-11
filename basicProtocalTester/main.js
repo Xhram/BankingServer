@@ -1,4 +1,4 @@
-function sendPostDemo(){
+async function sendPostDemo(){
     var url = document.getElementById("url").value;
     var inputData = document.getElementById("PostOut").value;
     var outData = document.getElementById("PostIn");
@@ -11,25 +11,20 @@ function sendPostDemo(){
         return;
     }
 
-    
-    outData.value = post(url,package)
+    outData.value = await post(url,package)
     //TODO:
     //by pass cors
 }
 
-function post(url,package){
+async function post(url,package){
     if (typeof package == "object"){
         package = JSON.stringify(package)
     }
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", url);
-    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    xhr.onload = () => {
-      if (xhr.readyState == 4 && xhr.status == 201) {
-        return JSON.parse(xhr.responseText)
-      } else {
-        console.log(`Error: ${xhr.status}`);
+    return await (await fetch(url, {
+      method: "POST",
+      body: package,
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
       }
-    };
-    return xhr.send(package);
+    })).text()
 }
