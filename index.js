@@ -29,7 +29,8 @@ function requestListener(request,response){
         return
     } else if (request.method == "POST"){
         console.log("Post Request")
-        if(request.url.startsWidth("/api")){
+        console.log(request.url)
+        if(request.url.startsWith("/api")){
             //Get POST Data
 
             let body = "";
@@ -40,7 +41,7 @@ function requestListener(request,response){
 
             var EndDataReviving = () =>{
                 try {
-                    handleApiCall(data,response)
+                    handleApiCall(body,response)
                 } catch (error){
                     response.write("<h1>Server Has Had an Internal Error</h1>")
                     response.properEnd();
