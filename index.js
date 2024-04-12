@@ -1,6 +1,7 @@
 const fs = require("fs");
 const http = require("http");
 var port = 8080
+var signingBonus = 69420;
 
 var Users = readUserData()
 
@@ -63,7 +64,7 @@ function requestListener(request,response){
                     handleApiCall(body,response)
                 } catch (error){
                     console.error(error)
-                    response.write("<h1>Server Has Had an Internal Error</h1>")
+                    response.write("\n<br><h1>Server Has Had an Internal Error</h1>")
                     response.properEnd();
 
                 }
@@ -111,12 +112,10 @@ function handleApiCall(data,response){
         var package = JSON.parse(data);
     } catch (error) {
         response.write("post request was not in json format");
-        response.properEnd();
         throw new Error("post request was not in json format")
     }
     if(package.type == undefined){
         response.write("post request did not have a type");
-        response.properEnd();
         throw new Error("post request did not have a type")
     }
 
@@ -128,6 +127,27 @@ function handleApiCall(data,response){
         }));
         response.properEnd()
         return;
+    }
+    
+    //sample:
+    // {
+    //     type:"create account",
+    //     username:"username",
+    //     password:"password"
+    // }
+
+    if(package.type == "create account"){
+        if(package.username.length >= 3 && package.username.length <= 30 && package.password.length >= 3 && package.password.length <= 30){
+            Users[package.username] = {
+                username:package.username,
+                password:package.password,
+                balance:signingBonus
+            }
+            saveUserData(Users)
+        } else {
+            response.write("username and or password did not pass requiremests");
+            throw new Error("username and or password did not pass requiremests")
+        }
     }
 
 
