@@ -137,7 +137,7 @@ function handleApiCall(data,response){
     // }
 
     if(package.type == "create account"){
-        if(package.username.length >= 3 && package.username.length <= 30 && package.password.length >= 3 && package.password.length <= 30){
+        if(package.username.length >= 3 && package.username.length <= 30 && package.password.length >= 3 && package.password.length <= 30 && Users[package.username] == undefined){
             Users[package.username] = {
                 username:package.username,
                 password:package.password,
