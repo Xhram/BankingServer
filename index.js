@@ -2,6 +2,24 @@ const fs = require("fs");
 const http = require("http");
 var port = 8080
 
+var Users = readUserData()
+
+function readUserData(){
+    return JSON.parse(fs.readFileSync("./DataBase/Users.json","utf8"));
+}
+
+function saveUserData(data){
+    fs.writeFileSync("./DataBase/Users.json",JSON.stringify(data,null,4))
+}
+
+
+
+
+
+
+
+
+
 function requestListener(request,response){
 
     response.hasEnded = false;
