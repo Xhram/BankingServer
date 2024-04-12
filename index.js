@@ -21,7 +21,7 @@ function requestListener(request,response){
     response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
     response.setHeader('Access-Control-Allow-Headers', '*');
 
-    
+    console.log(request)
 
     if(request.method == "OPTIONS"){
         console.log("Preflight Options Http Request")
@@ -30,19 +30,21 @@ function requestListener(request,response){
     } else if (request.method == "POST"){
         console.log("Post Request")
         console.log(request.url)
+        console.log(request.method)
         if(request.url.startsWith("/api")){
             //Get POST Data
 
             let body = "";
-            var ReciveData = (chunk) =>{
+            let ReciveData = (chunk) =>{
                 body += chunk.toString();
             }
             request.on("data", ReciveData);
 
-            var EndDataReviving = () =>{
+            let EndDataReviving = () =>{
                 try {
                     handleApiCall(body,response)
                 } catch (error){
+                    console.error(error)
                     response.write("<h1>Server Has Had an Internal Error</h1>")
                     response.properEnd();
 
@@ -64,6 +66,9 @@ function requestListener(request,response){
         //add later
     } else if(request.method == "GET"){
         //add later
+    } else {
+        response.write("<h1>fall back code</h1>")
+        response.properEnd()
     }
 
 
@@ -74,8 +79,6 @@ function requestListener(request,response){
 
 
 
-    response.write("<h1>fall back code</h1>")
-    response.properEnd()
 
 }
 
@@ -91,20 +94,20 @@ function handleApiCall(data,response){
     } catch (error) {
         response.write("post request was not in json format");
         response.properEnd();
-        return;
+        throw new Error("post request was not in json format")
     }
     if(package.type == undefined){
         response.write("post request did not have a type");
         response.properEnd();
-        return;
+        throw new Error("post request did not have a type")
     }
 
     if(package.type == "test pack"){
         response.write(JSON.stringify({
             type:"test pack",
             time:Date.now(),
-            randomInt:Math.random() * (package.max + 1 - package.min) + packagel.min
-        }))
+            randomInt:Math.random() * (package.max + 1 - package.min) + package.min
+        }));
         response.properEnd()
         return;
     }
