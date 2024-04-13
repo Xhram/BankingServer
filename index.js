@@ -255,9 +255,10 @@ function getUserByToken(token){
         if(tokenPack.token == token){
             if(tokenPack.expirationData <= Date.now()){
                 Users[unsername].tokens.splice(i,1);
+                saveUserData(Users)
                 return {status:"failed",reason:"token has exspired"}
             } else {
-                return {status:"succeeded",User:Users[unsername]}
+                return {status:"succeeded",user:Users[unsername]}
             }
         }
     }
