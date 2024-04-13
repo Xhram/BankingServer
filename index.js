@@ -172,11 +172,12 @@ function handleApiCall(data,response){
     // }
 
     if(package.type == "create account"){
-        if(package.username.length >= 3 && package.username.length <= 30 && package.password.length >= 3 && package.password.length <= 30 && Users[package.username] == undefined){
+        if(!package.password.includes(";") && !package.username.includes(";") && package.username.length >= 3 && package.username.length <= 30 && package.password.length >= 3 && package.password.length <= 30 && Users[package.username] == undefined){
             Users[package.username] = {
                 username:package.username,
                 password:package.password,
-                balance:signingBonus
+                balance:signingBonus,
+                tokens:[]
             }
             saveUserData(Users)
         } else {
@@ -186,10 +187,28 @@ function handleApiCall(data,response){
     }
 
 
+
+    if(package.type == "login"){
+        if(Users[package.username] != undefined && Users[package.username].password == package.password){
+
+        } else {
+            response.write("account dose not exist or password is incorrect");
+            throw new Error("account dose not exist or password is incorrect")
+        }
+    }
+
+
+
+
+
     
 
 
 
 }
+
+
+
+
 
 
