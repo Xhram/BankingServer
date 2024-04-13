@@ -194,7 +194,12 @@ function handleApiCall(data,response){
         }
     }
 
-
+    //sample:
+    // {
+    //     type:"login",
+    //     username:"John Cina",
+    //     password:"BananaMan"
+    // }
 
     if(package.type == "login"){
         if(Users[package.username] != undefined && Users[package.username].password == package.password){
