@@ -185,7 +185,7 @@ function handleApiCall(data,response){
                 expirationData:Date.now() + timeBeforTokensExspire
             }
             Users[package.username].tokens.push(newTokenPack)
-            response.write(JSON.stringify({token:newTokenPack.token}));
+            response.write(JSON.stringify({type:"token",token:newTokenPack.token}));
             saveUserData(Users)
             response.properEnd()
         } else {
@@ -203,7 +203,7 @@ function handleApiCall(data,response){
                 expirationData:Date.now() + timeBeforTokensExspire
             }
             Users[package.username].tokens.push(newTokenPack)
-            response.write(JSON.stringify({token:newTokenPack.token}));
+            response.write(JSON.stringify({type:"token",token:newTokenPack.token}));
             saveUserData(Users)
             response.properEnd()
         } else {
@@ -211,6 +211,7 @@ function handleApiCall(data,response){
             throw new Error("account dose not exist or password is incorrect")
         }
     }
+
 
 
 
