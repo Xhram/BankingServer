@@ -40,8 +40,7 @@ function requestListener(request,response){
     response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
     response.setHeader('Access-Control-Allow-Headers', '*');
 
-    console.log(request.url)
-    console.log(request)
+
 
     if(request.method == "OPTIONS"){
         console.log("Preflight Options Http Request")
@@ -87,9 +86,6 @@ function requestListener(request,response){
     } else if(request.method == "GET"){
         var path = "./clientWebsite" + request.url;
         try {
-            if(request.url == "/assets/user.svg"){
-                console.log("hook in here")
-            }
             if(path.endsWith("/")){
                 path+="index.html"
             }
@@ -124,7 +120,6 @@ function requestListener(request,response){
             response.properEnd();
         }
 
-        //add later
     } else {
         response.write("<h1>fall back code</h1>")
         response.properEnd()
