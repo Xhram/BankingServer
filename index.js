@@ -183,10 +183,10 @@ function handleApiCall(data,response){
             }
             var newTokenPack = {
                 token:package.username + ";" + generateToken(),
-                expirationData:Date.now() + timeBeforTokensExspire
+                expirationDate:Date.now() + timeBeforTokensExspire
             }
             Users[package.username].tokens.push(newTokenPack)
-            response.write(JSON.stringify({type:"token",token:newTokenPack.token,expirationData:newTokenPack.expirationData}));
+            response.write(JSON.stringify({type:"token",token:newTokenPack.token,expirationDate:newTokenPack.expirationDate}));
             saveUserData(Users)
             response.properEnd()
         } else {
@@ -206,10 +206,10 @@ function handleApiCall(data,response){
         if(Users[package.username] != undefined && Users[package.username].password == package.password){
             var newTokenPack = {
                 token:package.username + ";" + generateToken(),
-                expirationData:Date.now() + timeBeforTokensExspire
+                expirationDate:Date.now() + timeBeforTokensExspire
             }
             Users[package.username].tokens.push(newTokenPack)
-            response.write(JSON.stringify({type:"token",token:newTokenPack.token,expirationData:newTokenPack.expirationData}));
+            response.write(JSON.stringify({type:"token",token:newTokenPack.token,expirationDate:newTokenPack.expirationDate}));
             saveUserData(Users)
             response.properEnd()
         } else {
@@ -253,7 +253,7 @@ function getUserByToken(token){
     for (let i = 0; i < tokens.length; i++) {
         const tokenPack = tokens[i];
         if(tokenPack.token == token){
-            if(tokenPack.expirationData <= Date.now()){
+            if(tokenPack.expirationDate <= Date.now()){
                 Users[unsername].tokens.splice(i,1);
                 saveUserData(Users)
                 return {status:"failed",reason:"token has exspired"}
