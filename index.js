@@ -178,7 +178,8 @@ function handleApiCall(data,response){
                 username:package.username,
                 password:package.password,
                 balance:signingBonus,
-                tokens:[]
+                tokens:[],
+                transactions:[],
             }
             var newTokenPack = {
                 token:package.username + ";" + generateToken(),
@@ -217,7 +218,21 @@ function handleApiCall(data,response){
         }
     }
 
-
+    if(package.type == "get account details"){
+        var tokenCheckResult = getUserByToken(package.token)
+        if(tokenCheckResult.status == "failed"){
+            response.write(tokenCheckResult.reason);
+            throw new Error(tokenCheckResult.reason)
+        }
+        if(tokenCheckResult.status == "succeeded"){
+            var user = tokenCheckResult.user;
+            response.write(JSON.stringify({type:"account details",balance:user.balance,transactions:user.transactions}));
+            response.properEnd()
+        } else {
+            response.write("account dose not exist or password is incorrect");
+            throw new Error("account dose not exist or password is incorrect")
+        }
+    }
 
 
 
@@ -226,6 +241,27 @@ function handleApiCall(data,response){
 
 
 
+}
+
+
+function getUserByToken(token){
+    var unsername = token.split(";")[0]
+    if(Users[unsername] == undefined){
+        return {status:"failed",reason:"invalid token"};
+    }
+    var tokens = Users[unsername].tokens;
+    for (let i = 0; i < tokens.length; i++) {
+        const tokenPack = tokens[i];
+        if(tokenPack.token == token){
+            if(tokenPack.expirationData <= Date.now()){
+                Users[unsername].tokens.splice(i,1);
+                return {status:"failed",reason:"token has exspired"}
+            } else {
+                return {status:"succeeded",User:Users[unsername]}
+            }
+        }
+    }
+    return {status:"failed",reason:"invalid token"};
 }
 
 
