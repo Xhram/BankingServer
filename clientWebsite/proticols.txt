@@ -1,0 +1,11 @@
+createAccount:
+method-POST
+url: "/api/createAccount"
+body: {
+  username,
+  password,
+}
+response: {
+  username,
+  balance, => 0 //or 100 for signing bonus or something
+}

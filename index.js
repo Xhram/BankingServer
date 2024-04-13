@@ -40,6 +40,7 @@ function requestListener(request,response){
     response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
     response.setHeader('Access-Control-Allow-Headers', '*');
 
+    console.log(request.url)
     console.log(request)
 
     if(request.method == "OPTIONS"){
@@ -84,6 +85,45 @@ function requestListener(request,response){
         }
         //add later
     } else if(request.method == "GET"){
+        var path = "./clientWebsite" + request.url;
+        try {
+            if(request.url == "/assets/user.svg"){
+                console.log("hook in here")
+            }
+            if(path.endsWith("/")){
+                path+="index.html"
+            }
+
+            if(path.endsWith(".html")){
+                response.setHeader('Content-Type', 'text/html; charset=utf-8');
+            }
+            if(path.endsWith(".css")){
+                response.setHeader('Content-Type', 'text/css; charset=utf-8');
+            }
+            if(path.endsWith(".js")){
+                response.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+            }
+            if(path.endsWith(".svg")){
+                response.setHeader('Content-Type', 'image/svg+xml');
+            }
+            if(path.endsWith(".woff2")){
+                response.setHeader('Content-Type', 'font/woff2');
+            }
+
+
+
+            var file = fs.readFileSync(path,"utf8")
+            response.write(file);
+            response.properEnd();
+
+
+
+        } catch (error) {
+            response.write("<h1>File Most Likly Dose not Exsit</h1>")
+            response.write("\n<br><h1>Server Has Had an Internal Error</h1>")
+            response.properEnd();
+        }
+
         //add later
     } else {
         response.write("<h1>fall back code</h1>")
