@@ -2,6 +2,7 @@ const fs = require("fs");
 const http = require("http");
 var port = 8080
 var signingBonus = 69420;
+var timeBeforTokensExspire = 1 * 7 * 24 * 60 * 60 * 1000//in ms
 
 var Users = readUserData()
 
@@ -179,7 +180,14 @@ function handleApiCall(data,response){
                 balance:signingBonus,
                 tokens:[]
             }
+            var newTokenPack = {
+                token:package.username + ";" + generateToken(),
+                expirationData:Date.now() + timeBeforTokensExspire
+            }
+            Users[package.username].tokens.push(newTokenPack)
+            response.write(JSON.stringify({token:newTokenPack.token}));
             saveUserData(Users)
+            response.properEnd()
         } else {
             response.write("username and or password did not pass requiremests");
             throw new Error("username and or password did not pass requiremests")
@@ -190,7 +198,14 @@ function handleApiCall(data,response){
 
     if(package.type == "login"){
         if(Users[package.username] != undefined && Users[package.username].password == package.password){
-
+            var newTokenPack = {
+                token:package.username + ";" + generateToken(),
+                expirationData:Date.now() + timeBeforTokensExspire
+            }
+            Users[package.username].tokens.push(newTokenPack)
+            response.write(JSON.stringify({token:newTokenPack.token}));
+            saveUserData(Users)
+            response.properEnd()
         } else {
             response.write("account dose not exist or password is incorrect");
             throw new Error("account dose not exist or password is incorrect")
