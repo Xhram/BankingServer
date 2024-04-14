@@ -266,10 +266,11 @@ function handleApiCall(data,response){
                 type:"withdraw",
                 date:Date.now(),
                 previousBalance:user.balance,
-                newBalance:user.balance-tokenCheckResult.amount
+                newBalance:user.balance-package.amount
             }
-            tokenCheckResult.transactions.push(newTransaction);
-            response.write(JSON.stringify({type:"deposit",balance:user.balance,transaction:newTransaction}));
+            user.transactions.push(newTransaction);
+            user.balance -= package.amount;
+            response.write(JSON.stringify({type:"withdraw",balance:user.balance,transaction:newTransaction}));
             response.properEnd()
         }
     }
