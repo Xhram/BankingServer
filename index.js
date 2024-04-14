@@ -245,7 +245,28 @@ function handleApiCall(data,response){
                 type:"deposit",
                 date:Date.now(),
                 previousBalance:user.balance,
-                newBalance:user.balance+tokenCheckResult.amount
+                newBalance:user.balance+package.amount
+            }
+            user.transactions.push(newTransaction);
+            user.balance += package.amount;
+            response.write(JSON.stringify({type:"deposit",balance:user.balance,transaction:newTransaction}));
+            response.properEnd()
+        }
+    }
+
+    if(package.type == "withdraw"){
+        var tokenCheckResult = getUserByToken(package.token)
+        if(tokenCheckResult.status == "failed"){
+            response.write(tokenCheckResult.reason);
+            throw new Error(tokenCheckResult.reason)
+        }
+        if(tokenCheckResult.status == "succeeded"){
+            var user = tokenCheckResult.user;
+            var newTransaction = {
+                type:"withdraw",
+                date:Date.now(),
+                previousBalance:user.balance,
+                newBalance:user.balance-tokenCheckResult.amount
             }
             tokenCheckResult.transactions.push(newTransaction);
             response.write(JSON.stringify({type:"deposit",balance:user.balance,transaction:newTransaction}));
