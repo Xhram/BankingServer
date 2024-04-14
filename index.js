@@ -226,7 +226,7 @@ function handleApiCall(data,response){
         }
         if(tokenCheckResult.status == "succeeded"){
             var user = tokenCheckResult.user;
-            response.write(JSON.stringify({type:"account details",balance:user.balance,transactions:user.transactions}));
+            response.write(JSON.stringify({type:"account details",balance:user.balance,transactions:user.transactions,username:user.username}));
             response.properEnd()
         } else {
             response.write("account dose not exist or password is incorrect");
