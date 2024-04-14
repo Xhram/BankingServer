@@ -228,9 +228,20 @@ function handleApiCall(data,response){
             var user = tokenCheckResult.user;
             response.write(JSON.stringify({type:"account details",balance:user.balance,transactions:user.transactions,username:user.username}));
             response.properEnd()
-        } else {
-            response.write("account dose not exist or password is incorrect");
-            throw new Error("account dose not exist or password is incorrect")
+        }
+    }
+
+
+    if(package.type == "deposit"){
+        var tokenCheckResult = getUserByToken(package.token)
+        if(tokenCheckResult.status == "failed"){
+            response.write(tokenCheckResult.reason);
+            throw new Error(tokenCheckResult.reason)
+        }
+        if(tokenCheckResult.status == "succeeded"){
+            var user = tokenCheckResult.user;
+            response.write(JSON.stringify({type:"account details",balance:user.balance,transactions:user.transactions,username:user.username}));
+            response.properEnd()
         }
     }
 
