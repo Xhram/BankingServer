@@ -1,5 +1,6 @@
 const fs = require("fs");
 const http = require("http");
+const { type } = require("os");
 var port = 8080
 var signingBonus = 69420;
 var timeBeforTokensExspire = 1 * 7 * 24 * 60 * 60 * 1000//in ms
@@ -240,7 +241,14 @@ function handleApiCall(data,response){
         }
         if(tokenCheckResult.status == "succeeded"){
             var user = tokenCheckResult.user;
-            response.write(JSON.stringify({type:"account details",balance:user.balance,transactions:user.transactions,username:user.username}));
+            var newTransaction = {
+                date:Date.now(),
+                type:"deposit",
+                previousBalance:user.balance,
+                newBalance:user.balance+tokenCheckResult.amount
+            }
+            tokenCheckResult.transactions.push(newTransaction);
+            response.write(JSON.stringify({type:"deposit",balance:user.balance,transaction:newTransaction}));
             response.properEnd()
         }
     }
