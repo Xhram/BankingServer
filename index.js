@@ -242,8 +242,8 @@ function handleApiCall(data,response){
         if(tokenCheckResult.status == "succeeded"){
             var user = tokenCheckResult.user;
             var newTransaction = {
-                date:Date.now(),
                 type:"deposit",
+                date:Date.now(),
                 previousBalance:user.balance,
                 newBalance:user.balance+tokenCheckResult.amount
             }
