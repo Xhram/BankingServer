@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Hack-O Bank</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="../css/root.css" rel="stylesheet" type="text/css" />
+  <link href="../css/main.css" rel="stylesheet" type="text/css" />
+  <link href="./css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="container">
+    <tabs>
+      <align style="height:auto;display:flex;align-items:center;gap:inherit;width:100%;justify-content:inherit;">
+        <profile>
+          <a href="./signup/index.html" class="noAccount"><button>Open Account</button></a>
+          <a href="./login/index.html" class="noAccount"><button>Login</button></a>
+          <span id="balanceAmmount" class="balance">$Balance</span>
+          <span id="name" class="name">Your Name</span>
+          <button class="signout" onmousedown="deleteTokenFromLocal();redirect('../index.html');")">Sign Out</button>
+        </profile>
+      </align>
+    </tabs>
+    <h1 class="header"><border>Hack-<text>O</text></border> Bank</h1>
+  </header>
+  <main>
+    <div class="moneyContainer">
+      <canvas id="balance" width="600" height="300" style="background:var(--background);border-radius: 2rem;padding: 1.5rem;"></canvas>
+      <canvas id="withdraws" width="600" height="300" style="background:var(--background);border-radius: 2rem;padding: 1.5rem;"></canvas>
+      <canvas id="deposits" width="600" height="300" style="background:var(--background);border-radius: 2rem;padding: 1.5rem;"></canvas>
+    </div>
+    <div class="money">
+      <div class="changeMoney">
+        <input type="text" placeholder="Money" id="a">
+        <button class="submit" onclick="withdraw()">Withdraw</button>
+        <button class="submit" onclick="deposit()">Deposit</button>
+      </div>
+      <h3>Simulate A Work Week (40 Hours)</h3>
+      <div class="changeMoney">
+        <input type="text" placeholder="Yearly Salary" id="b">
+        <button class="submit" onclick="simulate()">Simulate</button>
+      </div>
+    </div>
+  </main>
+</body>
+
+<script src="../script/loader.js" defer></script>
+<script src="../script/account.js"></script>
+<script src="./script/main.js" defer></script>
+
+</html>

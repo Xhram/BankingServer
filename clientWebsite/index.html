@@ -5,10 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Hack-O Bank</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="css/root.css" rel="stylesheet" type="text/css" />
   <link href="css/main.css" rel="stylesheet" type="text/css" />
 </head>
@@ -16,26 +14,38 @@
 <body>
   <header class="container">
     <tabs>
-      <align style="display:flex;">
-      <button>Learn More</button>
-      <button>About</button>
-      <profile>
-        <button>Open Account</button>
-        <button>Login</button>
-        <span class="balance noAccount">$1,000</span>
-        <span class="name noAccount">Hello</span>
-        <div class="icon">
-          <img src="./assets/user.svg">
-        </div>
-      </profile>
-        </align>
+      <align style="height:auto;display:flex;align-items:center;gap:inherit;width:100%;justify-content:inherit;">
+        <profile>
+          <a href="./signup/index.html"><button>Open Account</button></a>
+          <a href="./login/index.html"><button>Login</button></a>
+          <span class="balance noAccount">$1,000</span>
+          <span class="name noAccount">Hello</span>
+          <div class="icon">
+            <img src="./assets/user.svg">
+          </div>
+        </profile>
+      </align>
     </tabs>
     <h1 class="header"><border>Hack-<text>O</text></border> Bank</h1>
   </header>
   <main>
-    <canvas id="savings" style="background:var(--background);border-radius: 2rem;padding: 1.5rem;"></canvas>
-    hello
+    <div class="content">
+      <img src="assets/hack-o-thon-bank-image.png">
+      <div class="about">
+        <h1 style='width:100%;background: var(--secondary-400);border-radius: 0.5rem;padding-left:0.3rem;'><border>Hack-<text>O</text></border> Bank</h1>
+        <p style="padding-left:0.9rem;font-size:1.4rem;">We're here to help! Coding and your Fanancial problems! This website's purpose is to be a demo to showcase the power and importance of Node.js. A runtime enviroment that enables people like YOU to create server based applications and more!</p>
+      </div>
+      <div class="about">
+        <h1 style='width:100%;background: var(--secondary-400);border-radius: 0.5rem;padding-left:0.3rem;'>Founders</h1>
+        <h2 style="padding-left:0.9rem;">Founder: Isaac Kahle-Ruiz</h2>
+        <h2 style="padding-left:0.9rem;">Co-Founder: Norbert Zych</h2>
+      </div>
+      <img src="assets/hack-o-thon-bank-image.png">
+    </div>
   </main>
+  <footer>
+    <h3>GitHub - <a href="https://github.com/Xhram">Isaac Kahle-Ruiz</a></h3>
+  </footer>
 </body>
 
 <script src="./script/loader.js" defer></script>

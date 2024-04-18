@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Hack-O Bank Create Account</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="../css/root.css" rel="stylesheet" type="text/css" />
+  <link href="../css/main.css" rel="stylesheet" type="text/css" />
+  <link href="./css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="container">
+    <tabs>
+      <align style="height:auto;display:flex;align-items:center;gap:inherit;width:100%;justify-content:inherit;">
+        <a href="../index.html"><button>Home</button></a>
+      </align>
+    </tabs>
+    <h1 class="header"><border>Create</border> Account</h1>
+  </header>
+  <main>
+    <signup>
+      <img src="../assets/hack-o-thon-bank-image.png">
+      <div class="signupContainer">
+        <form autocomplete="off" onsubmit="return false">
+          <h2 style="margin: 0.5rem 0;">Create Your Account</h2>
+          <div class="inputContainer">
+            <input type="text" id="username" placeholder="" autocomplete="off" maxlength="60">
+            <div id="usernameCover" class="cover">Username</div>
+          </div>
+          <div class="inputContainer">
+            <input type="password" id="password" placeholder="" autocomplete="off" maxlength="60">
+            <div id="passwordCover" class="cover">Password <img onmousedown='let password = document.getElementById("password");password.type = password.type === "text" ? "password" : "text";if(password.type === "password"){this.src="../assets/hidden.svg";}else{this.src="../assets/visible.svg";}' src="../assets/hidden.svg"></div>
+          </div>
+          <span class="submit" onmousedown="createAccount();">Create</span>
+          <h6 style="margin-top: 2rem;">Already Have An Account? <a style="text-decoration: underline;cursor:pointer;color:var(--primary);" href="../login/index.html">Login</a>!</h6>
+        </form>
+      </div>
+    </signup>
+
+  </main>
+</body>
+
+<script src="../script/loader.js" defer></script>
+<script src="../script/account.js"></script>
+<script src="./script/submit.js"></script>
+
+</html>

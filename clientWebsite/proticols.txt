@@ -9,3 +9,14 @@ response: {
   username,
   balance, => 0 //or 100 for signing bonus or something
 }
+withdrawAmount:
+method-POST
+url: "/api/withdraw"
+body: {
+  token,
+  amount,
+}
+response: {
+  success,
+  newBalance,
+}
