@@ -1,6 +1,5 @@
 const fs = require("fs");
 const http = require("http");
-const { type } = require("os");
 var port = 8080
 var signingBonus = 69420;
 var timeBeforTokensExspire = 1 * 7 * 24 * 60 * 60 * 1000//in ms
