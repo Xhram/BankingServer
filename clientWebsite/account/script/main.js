@@ -1,7 +1,7 @@
 if(!token) redirect("../index.html"); //redirect user if they dont have account
 const getChartData = function(){
   document.getElementById("name").innerHTML = accountData.username;
-  document.getElementById("balanceAmmount").innerHTML = "$" + accountData.balance;
+  document.getElementById("balanceamount").innerHTML = "$" + accountData.balance;
 
   const allTransactionData = getFinancialDataForTimeframe(accountData.transactions);
   graphDataToChart("balance", {
@@ -38,7 +38,7 @@ function withdraw(){
     body: JSON.stringify({
       type: "withdraw",
       token: token,
-      ammount: value,
+      amount: value,
     }),
   })
   .then((response) => response.json())
@@ -64,7 +64,7 @@ function deposit() {
     body: JSON.stringify({
       type: "deposit",
       token: token,
-      ammount: value,
+      amount: value,
     }),
   })
   .then((response) => response.json())
@@ -93,7 +93,7 @@ function simulate() {
       body: JSON.stringify({
         type: "deposit",
         token: token,
-        ammount: dailySalary,
+        amount: dailySalary,
       }),
     })
     .then((response) => response.json())

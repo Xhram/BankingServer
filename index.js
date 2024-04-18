@@ -256,6 +256,7 @@ function handleApiCall(data,response){
             var newTransaction = {
                 type:"deposit",
                 date:Date.now(),
+				amount:package.amount,
                 previousBalance:user.balance,
                 newBalance:user.balance+package.amount
             }
@@ -278,6 +279,7 @@ function handleApiCall(data,response){
             var newTransaction = {
                 type:"withdraw",
                 date:Date.now(),
+				amount:package.amount,
                 previousBalance:user.balance,
                 newBalance:user.balance-package.amount
             }

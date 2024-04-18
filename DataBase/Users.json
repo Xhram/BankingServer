@@ -28,13 +28,49 @@
     "NDL": {
         "username": "NDL",
         "password": "12345678",
-        "balance": 69420,
+        "balance": 6234.39846743295,
         "tokens": [
             {
                 "token": "NDL;oyETCmrUg31maoO5",
                 "expirationDate": 1714080049960
             }
         ],
-        "transactions": []
+        "transactions": [
+            {
+                "type": "deposit",
+                "date": 1713475670603,
+                "amount": 1242.27969348659,
+                "previousBalance": 23,
+                "newBalance": 1265.27969348659
+            },
+            {
+                "type": "deposit",
+                "date": 1713475670606,
+                "amount": 1242.27969348659,
+                "previousBalance": 1265.27969348659,
+                "newBalance": 2507.55938697318
+            },
+            {
+                "type": "deposit",
+                "date": 1713475670607,
+                "amount": 1242.27969348659,
+                "previousBalance": 2507.55938697318,
+                "newBalance": 3749.8390804597702
+            },
+            {
+                "type": "deposit",
+                "date": 1713475670609,
+                "amount": 1242.27969348659,
+                "previousBalance": 3749.8390804597702,
+                "newBalance": 4992.11877394636
+            },
+            {
+                "type": "deposit",
+                "date": 1713475670610,
+                "amount": 1242.27969348659,
+                "previousBalance": 4992.11877394636,
+                "newBalance": 6234.39846743295
+            }
+        ]
     }
 }
