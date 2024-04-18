@@ -24,5 +24,17 @@
             }
         ],
         "transactions": []
+    },
+    "NDL": {
+        "username": "NDL",
+        "password": "12345678",
+        "balance": 69420,
+        "tokens": [
+            {
+                "token": "NDL;oyETCmrUg31maoO5",
+                "expirationDate": 1714080049960
+            }
+        ],
+        "transactions": []
     }
 }

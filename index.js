@@ -263,6 +263,7 @@ function handleApiCall(data,response){
             user.balance += package.amount;
             response.write(JSON.stringify({type:"deposit",balance:user.balance,transaction:newTransaction}));
             response.properEnd()
+			saveUserData(Users)
         }
     }
 
@@ -284,6 +285,7 @@ function handleApiCall(data,response){
             user.balance -= package.amount;
             response.write(JSON.stringify({type:"withdraw",balance:user.balance,transaction:newTransaction}));
             response.properEnd()
+			saveUserData(Users)
         }
     }
 
