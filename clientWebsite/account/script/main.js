@@ -28,7 +28,7 @@ const getChartData = function(){
 getAccountData(getChartData);
 
 function withdraw(){
-  const value = parseInt(document.getElemenById("a").value);
+  const value = parseInt(document.getElementById("a").value);
   if(!value && value != 0) return;
   fetch("../api/withdraw", {
     method: "POST",
@@ -54,7 +54,7 @@ function withdraw(){
   });
 }
 function deposit() {
-  const value = parseInt(document.getElemenById("a").value);
+  const value = parseInt(document.getElementById("a").value);
   if(!value && value != 0) return;
   fetch("../api/deposit", {
     method: "POST",
@@ -80,7 +80,7 @@ function deposit() {
   });
 }
 function simulate() {
-  const yearly = parseInt(document.getElemenById("b").value);
+  const yearly = parseInt(document.getElementById("b").value);
   const dailySalary = yearly / (365 - (52 * 2));
   if(!dailySalary && dailySalary != 0) return;
   for(let i = 0; i < 5; i++) {
