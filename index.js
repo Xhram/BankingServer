@@ -90,7 +90,7 @@ function requestListener(request,response){
             if(path.endsWith("/")){
                 path+="index.html"
             }
-
+			var parseAsUTF8 = true;
             if(path.endsWith(".html")){
                 response.setHeader('Content-Type', 'text/html; charset=utf-8');
             }
@@ -106,10 +106,23 @@ function requestListener(request,response){
             if(path.endsWith(".woff2")){
                 response.setHeader('Content-Type', 'font/woff2');
             }
+			if(path.endsWith(".png")){
+				response.setHeader('Content-Type', 'image/png');
+				parseAsUTF8 = false;
+			}
+			
 
 
 
-            var file = fs.readFileSync(path,"utf8")
+			
+            var file;
+			if(parseAsUTF8){
+				file = fs.readFileSync(path,"utf8")
+			} else {
+				file = fs.readFileSync(path)
+			}
+			response.setHeader('Content-Length', file.length);
+			
             response.write(file);
             response.properEnd();
 

@@ -13,7 +13,12 @@
         "username": "Test",
         "password": "password_test",
         "balance": 69420,
-        "tokens": [],
+        "tokens": [
+            {
+                "token": "Test;YelyvVigQ3J30qnq",
+                "expirationDate": 1714072553397
+            }
+        ],
         "transactions": []
     }
 }
