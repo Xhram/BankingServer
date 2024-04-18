@@ -93,7 +93,7 @@ function simulate() {
       body: JSON.stringify({
         type: "deposit",
         token: token,
-        ammount: value,
+        ammount: dailySalary,
       }),
     })
     .then((response) => response.json())
