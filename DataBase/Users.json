@@ -103,5 +103,167 @@
                 "newBalance": 69422
             }
         ]
+    },
+    "Sara": {
+        "username": "Sara",
+        "password": "hello",
+        "balance": 69424.32950191578,
+        "tokens": [],
+        "transactions": [
+            {
+                "type": "deposit",
+                "date": 1713570234311,
+                "amount": 0.038314176245210725,
+                "previousBalance": 69420,
+                "newBalance": 69420.03831417624
+            },
+            {
+                "type": "deposit",
+                "date": 1713570234321,
+                "amount": 0.038314176245210725,
+                "previousBalance": 69420.03831417624,
+                "newBalance": 69420.07662835249
+            },
+            {
+                "type": "deposit",
+                "date": 1713570234354,
+                "amount": 0.038314176245210725,
+                "previousBalance": 69420.07662835249,
+                "newBalance": 69420.11494252873
+            },
+            {
+                "type": "deposit",
+                "date": 1713570234356,
+                "amount": 0.038314176245210725,
+                "previousBalance": 69420.11494252873,
+                "newBalance": 69420.15325670497
+            },
+            {
+                "type": "deposit",
+                "date": 1713570234357,
+                "amount": 0.038314176245210725,
+                "previousBalance": 69420.15325670497,
+                "newBalance": 69420.19157088122
+            },
+            {
+                "type": "deposit",
+                "date": 1713570257858,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.19157088122,
+                "newBalance": 69420.26053639846
+            },
+            {
+                "type": "deposit",
+                "date": 1713570257861,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.26053639846,
+                "newBalance": 69420.32950191571
+            },
+            {
+                "type": "deposit",
+                "date": 1713570257901,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.32950191571,
+                "newBalance": 69420.39846743295
+            },
+            {
+                "type": "deposit",
+                "date": 1713570257902,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.39846743295,
+                "newBalance": 69420.4674329502
+            },
+            {
+                "type": "deposit",
+                "date": 1713570257903,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.4674329502,
+                "newBalance": 69420.53639846745
+            },
+            {
+                "type": "deposit",
+                "date": 1713570291305,
+                "amount": 6,
+                "previousBalance": 69420.53639846745,
+                "newBalance": 69426.53639846745
+            },
+            {
+                "type": "withdraw",
+                "date": 1713570294062,
+                "amount": 6,
+                "previousBalance": 69426.53639846745,
+                "newBalance": 69420.53639846745
+            },
+            {
+                "type": "deposit",
+                "date": 1713570296301,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.53639846745,
+                "newBalance": 69420.6053639847
+            },
+            {
+                "type": "deposit",
+                "date": 1713570296528,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.6053639847,
+                "newBalance": 69420.67432950194
+            },
+            {
+                "type": "deposit",
+                "date": 1713570296583,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.67432950194,
+                "newBalance": 69420.74329501919
+            },
+            {
+                "type": "deposit",
+                "date": 1713570296586,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.74329501919,
+                "newBalance": 69420.81226053643
+            },
+            {
+                "type": "deposit",
+                "date": 1713570296626,
+                "amount": 0.06896551724137931,
+                "previousBalance": 69420.81226053643,
+                "newBalance": 69420.88122605368
+            },
+            {
+                "type": "deposit",
+                "date": 1713570301372,
+                "amount": 0.6896551724137931,
+                "previousBalance": 69420.88122605368,
+                "newBalance": 69421.5708812261
+            },
+            {
+                "type": "deposit",
+                "date": 1713570301374,
+                "amount": 0.6896551724137931,
+                "previousBalance": 69421.5708812261,
+                "newBalance": 69422.26053639852
+            },
+            {
+                "type": "deposit",
+                "date": 1713570301414,
+                "amount": 0.6896551724137931,
+                "previousBalance": 69422.26053639852,
+                "newBalance": 69422.95019157094
+            },
+            {
+                "type": "deposit",
+                "date": 1713570301415,
+                "amount": 0.6896551724137931,
+                "previousBalance": 69422.95019157094,
+                "newBalance": 69423.63984674336
+            },
+            {
+                "type": "deposit",
+                "date": 1713570301416,
+                "amount": 0.6896551724137931,
+                "previousBalance": 69423.63984674336,
+                "newBalance": 69424.32950191578
+            }
+        ]
     }
 }
