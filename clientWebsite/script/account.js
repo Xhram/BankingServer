@@ -45,11 +45,13 @@ const accountData = {
 }
 let charts = [];
 
-function graphDataToChart(canvasID = "", data = {title:"",labels:[],data:[],color:null,moneyType:"(USD)"}) {
-  for(let i = 0;i < charts.length;i++){
-    charts[i].destroy();
+function graphDataToChart(canvasID = "", data = {title:"",labels:[],data:[],color:null,moneyType:"(USD)"},clear=false) {
+  if(clear){
+    for(let i = 0;i < charts.length;i++){
+      charts[i].destroy();
+    }
+    charts = [];
   }
-  charts = [];
   const ctx = document.getElementById(canvasID).getContext('2d');
   const chart = new Chart(ctx, {
     type: "line",

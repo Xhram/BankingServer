@@ -1,7 +1,7 @@
 if(!token) redirect("../index.html"); //redirect user if they dont have account
 const getChartData = function(){
   document.getElementById("name").innerHTML = accountData.username;
-  document.getElementById("balanceamount").innerHTML = "$" + accountData.balance;
+  document.getElementById("balanceAmmount").innerHTML = "$" + accountData.balance.toFixed(2);
 
   const allTransactionData = getFinancialDataForTimeframe(accountData.transactions);
   graphDataToChart("balance", {
@@ -9,7 +9,7 @@ const getChartData = function(){
     moneyType: "(USD)",
     labels: allTransactionData.balanceData.labels,
     data: allTransactionData.balanceData.data,
-  });
+  },true);
   graphDataToChart("deposits", {
     title: "Money Deposited",
     moneyType: "(USD)",
