@@ -291,6 +291,26 @@ function handleApiCall(data,response){
         }
     }
 
+	if(package.type == "logout"){
+		var tokenCheckResult = getUserByToken(package.token)
+		if(tokenCheckResult.status == "failed"){
+			response.write(tokenCheckResult.reason);
+			throw new Error(tokenCheckResult.reason)
+		}
+		if(tokenCheckResult.status == "succeeded"){
+			var user = tokenCheckResult.user;
+			for(var i = 0;i<user.tokens;i++){
+				if(user.tokens[i].token == package.token){
+					user.tokens.splice(i,1)
+					break;
+				}
+			}
+			response.write(JSON.stringify({type:"logout",status:"succeeded"}));
+			response.properEnd()
+			saveUserData(Users)
+		}
+	}
+
 
 
 

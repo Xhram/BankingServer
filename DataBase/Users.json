@@ -1362,7 +1362,7 @@
     "minimoi": {
         "username": "minimoi",
         "password": "12345678",
-        "balance": 76682.83524904211,
+        "balance": 79119.68582375476,
         "tokens": [
             {
                 "token": "minimoi;im8vZELwVx3JVlma",
@@ -1371,6 +1371,10 @@
             {
                 "token": "minimoi;WW65OghPwbJiBa5F",
                 "expirationDate": 1714095803897
+            },
+            {
+                "token": "minimoi;NyvyUh9JuPqZypdx",
+                "expirationDate": 1714146579207
             }
         ],
         "transactions": [
@@ -1415,6 +1419,69 @@
                 "amount": 400,
                 "previousBalance": 77082.83524904211,
                 "newBalance": 76682.83524904211
+            },
+            {
+                "type": "deposit",
+                "date": 1713541876272,
+                "amount": 459.7701149425287,
+                "previousBalance": 76682.83524904211,
+                "newBalance": 77142.60536398464
+            },
+            {
+                "type": "deposit",
+                "date": 1713541876280,
+                "amount": 459.7701149425287,
+                "previousBalance": 77142.60536398464,
+                "newBalance": 77602.37547892716
+            },
+            {
+                "type": "deposit",
+                "date": 1713541876301,
+                "amount": 459.7701149425287,
+                "previousBalance": 77602.37547892716,
+                "newBalance": 78062.14559386969
+            },
+            {
+                "type": "deposit",
+                "date": 1713541876332,
+                "amount": 459.7701149425287,
+                "previousBalance": 78062.14559386969,
+                "newBalance": 78521.91570881222
+            },
+            {
+                "type": "deposit",
+                "date": 1713541876352,
+                "amount": 459.7701149425287,
+                "previousBalance": 78521.91570881222,
+                "newBalance": 78981.68582375474
+            },
+            {
+                "type": "deposit",
+                "date": 1713541912904,
+                "amount": 69,
+                "previousBalance": 78981.68582375474,
+                "newBalance": 79050.68582375474
+            },
+            {
+                "type": "deposit",
+                "date": 1713541912914,
+                "amount": 69,
+                "previousBalance": 79050.68582375474,
+                "newBalance": 79119.68582375474
+            },
+            {
+                "type": "deposit",
+                "date": 1713541922880,
+                "amount": 100000,
+                "previousBalance": 79119.68582375474,
+                "newBalance": 179119.68582375476
+            },
+            {
+                "type": "withdraw",
+                "date": 1713541925726,
+                "amount": 100000,
+                "previousBalance": 179119.68582375476,
+                "newBalance": 79119.68582375476
             }
         ]
     }
