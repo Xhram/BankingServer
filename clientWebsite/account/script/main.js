@@ -26,7 +26,26 @@ const getChartData = function(){
   });
 }
 getAccountData(getChartData);
+function logout(){
+  fetch("../api", {
+	method: "POST",
+	headers: {
+	  "Content-Type": "application/json",
+	},
+	body: JSON.stringify({
+	  type: "logout",
+	  token: token,
+	}),
+  })
+  .then((response) => response.json())
+  .then((response) => {
+	console.log(response);
 
+  })
+  .catch((error) => {
+	console.error(error);
+  });
+}
 function withdraw(){
   const value = parseInt(document.getElementById("a").value);
   if(!value && value != 0) return;
