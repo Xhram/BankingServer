@@ -299,7 +299,7 @@ function handleApiCall(data,response){
 		}
 		if(tokenCheckResult.status == "succeeded"){
 			var user = tokenCheckResult.user;
-			for(var i = 0;i<user.tokens;i++){
+			for(var i = 0;i<user.tokens.length;i++){
 				if(user.tokens[i].token == package.token){
 					user.tokens.splice(i,1)
 					break;
